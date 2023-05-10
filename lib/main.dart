@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shimmer_animation/shimmer_animation.dart';
 
 void main(List<String> args) {
   runApp(ScrollControllerWidget());
@@ -13,8 +14,7 @@ class ScrollControllerWidget extends StatefulWidget {
 
 class _ScrollControllerWidgetState extends State<ScrollControllerWidget> {
   final ScrollController _controller = ScrollController();
-  bool _isatTop = true;
-  bool _isatMiddle = true;
+
   double _height = 300;
 
   String _imagepath =
@@ -48,7 +48,7 @@ class _ScrollControllerWidgetState extends State<ScrollControllerWidget> {
               Expanded(
                 child: ListView.builder(
                   controller: _controller,
-                  itemCount: 21,
+                  itemCount: 11,
                   itemBuilder: (context, index) {
                     return _buildListItem(index);
                   },
@@ -98,12 +98,13 @@ class _ScrollControllerWidgetState extends State<ScrollControllerWidget> {
           })
         : isatMiddle
             ? setState(() {
-                _height = 200;
+                _height = 100;
                 _imagepath =
                     "https://upload.wikimedia.org/wikipedia/commons/d/da/Shunsuke1_20080622.jpg";
               })
             : setState(() {
                 _height = 200;
+
                 _imagepath =
                     "https://upload.wikimedia.org/wikipedia/commons/a/ad/Football_in_Bloomington%2C_Indiana%2C_1996.jpg";
               });
