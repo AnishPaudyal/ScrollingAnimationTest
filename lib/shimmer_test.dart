@@ -6,11 +6,16 @@ class ShimmerAnimation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Shimmer(
-      duration: Duration(seconds: 3),
-      interval: Duration(seconds: 3),
-      child: Container(
-        color: Colors.grey[600],
+    return Scaffold(
+      appBar: AppBar(
+        actions: [],
+      ),
+      body: Shimmer(
+        duration: const Duration(seconds: 2),
+        interval: const Duration(seconds: 2),
+        child: Container(
+          color: Colors.grey[600],
+        ),
       ),
     );
   }
