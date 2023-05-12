@@ -1,4 +1,5 @@
 import 'package:app/calendar.dart';
+import 'package:app/carousel.dart';
 import 'package:app/shimmer_test.dart';
 import 'package:flutter/material.dart';
 
@@ -52,6 +53,15 @@ class _ScrollControllerWidgetState extends State<ScrollControllerWidget> {
                     },
                     child: const Text('Shimmer'),
                   ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const carouselSlide()));
+                    },
+                    child: const Text('Carousel'),
+                  ),
                 ],
               ),
               Container(
@@ -87,6 +97,7 @@ class _ScrollControllerWidgetState extends State<ScrollControllerWidget> {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         FloatingActionButton(
+          heroTag: Null,
           onPressed: () {
             double startpos = 0;
             _controller.position.animateTo(startpos,
@@ -95,6 +106,7 @@ class _ScrollControllerWidgetState extends State<ScrollControllerWidget> {
           child: const Icon(Icons.arrow_upward),
         ),
         FloatingActionButton(
+          heroTag: Null,
           onPressed: () {
             double endpos = _controller.position.maxScrollExtent;
             _controller.position.animateTo(endpos,
@@ -156,14 +168,17 @@ class _ScrollControllerWidgetState extends State<ScrollControllerWidget> {
 
 Widget _buildListItem(int index) {
   return Container(
+    padding: const EdgeInsets.all(10),
+    decoration: const BoxDecoration(color: Colors.lightGreen),
     height: 100,
-    color: Colors.green,
-    child: Text(
-      'Item $index',
-      style: const TextStyle(
-        fontSize: 40,
-        fontWeight: FontWeight.bold,
-        color: Colors.white,
+    child: Center(
+      child: Text(
+        'Item $index',
+        style: const TextStyle(
+          fontSize: 30,
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
+        ),
       ),
     ),
   );

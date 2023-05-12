@@ -32,6 +32,9 @@ dependencies:
     sdk: flutter
   shimmer_animation: ^2.1.0
   syncfusion_flutter_calendar: ^21.2.4
+  carousel_slider: ^4.2.1
+  table_calendar: ^3.0.9
+  expandable: ^5.0.1
   
 
 

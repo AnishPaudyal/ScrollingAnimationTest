@@ -21,7 +21,6 @@ class _EventCalendarState extends State<EventCalendar> {
           onTap: (calendarTapDetails) => {
             debugPrint(calendarTapDetails.toString()),
           },
-          scheduleViewSettings: ScheduleViewSettings(),
           cellBorderColor: Colors.white,
           view: CalendarView.month,
           headerStyle: CalendarHeaderStyle(
@@ -56,7 +55,7 @@ class _EventCalendarState extends State<EventCalendar> {
                   color: Colors.white,
                 ),
                 leadingDatesTextStyle: TextStyle(
-                  color: Colors.black,
+                  color: Colors.white,
                   fontSize: 14,
                 ),
                 trailingDatesTextStyle: TextStyle(
@@ -74,14 +73,38 @@ class _EventCalendarState extends State<EventCalendar> {
 List<Appointment> getAppointments() {
   List<Appointment> meetings = <Appointment>[];
   final DateTime today = DateTime.now();
-  final DateTime startTime = DateTime(2023, 5, 11, 8, 0, 0);
-  final DateTime endTime = DateTime(2023, 5, 11, 10, 0, 0);
+  final DateTime startTime = DateTime(2023, 5, 12, 8, 0, 0);
+  final DateTime endTime = DateTime(2023, 5, 12, 10, 0, 0);
 
   meetings.add(
     Appointment(
       startTime: startTime,
       endTime: endTime,
       subject: 'Tennis',
+      color: Colors.green,
+    ),
+  );
+
+  final DateTime startTime2 = DateTime(2023, 5, 15, 11, 0, 0);
+  final DateTime endTime2 = DateTime(2023, 5, 15, 12, 0, 0);
+
+  meetings.add(
+    Appointment(
+      startTime: startTime2,
+      endTime: endTime2,
+      subject: 'Hockey',
+      color: Colors.blue,
+    ),
+  );
+
+  final DateTime startTime3 = DateTime(2023, 5, 15, 8, 0, 0);
+  final DateTime endTime3 = DateTime(2023, 5, 15, 10, 0, 0);
+
+  meetings.add(
+    Appointment(
+      startTime: startTime3,
+      endTime: endTime3,
+      subject: 'Football',
       color: Colors.green,
     ),
   );
